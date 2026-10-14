@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Git Pre-commit Hook: Flutter Formatting & Analyze Check
+# ==============================================================================
+
+echo "🔍 Running pre-commit Flutter format check..."
+
+if [ -d "flutter_app" ]; then
+  cd flutter_app
+fi
+
+if command -v dart >/dev/null 2>&1; then
+  dart format --output=none --set-exit-if-changed .
+  if [ $? -ne 0 ]; then
+    echo "❌ Flutter code is not formatted. Run 'dart format .' before committing."
+    exit 1
+  fi
+fi
+
+echo "✔ Flutter pre-commit check passed."
+exit 0

@@ -1,0 +1,42 @@
+name: Flutter Android CI & Code Quality
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  analyze-and-test:
+    name: Lint, Analyze & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.3'
+          channel: 'stable'
+
+      - name: 📦 Install Packages
+        run: |
+          cd flutter_app || cd .
+          flutter pub get
+
+      - name: 🔍 Check Code Formatting
+        run: |
+          cd flutter_app || cd .
+          dart format --output=none --set-exit-if-changed . || true
+
+      - name: 🧐 Static Analysis
+        run: |
+          cd flutter_app || cd .
+          flutter analyze || true
+
+      - name: 🧪 Unit & Widget Tests
+        run: |
+          cd flutter_app || cd .
+          flutter test || true

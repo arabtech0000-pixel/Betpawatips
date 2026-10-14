@@ -1,0 +1,6 @@
+{
+  "name": "KickPredict - Sports Prediction & Odds",
+  "description": "Premium sports prediction app featuring live football matches, tournament odds, real-time betting insights, and interactive predictions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

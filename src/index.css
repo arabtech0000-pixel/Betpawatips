@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070b04;
+    color: #ffffff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom scrollbar hiding for horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Rich Moss/Stadium Green Ambient Gradient matching Screenshot 1 */
+.bg-app-ambient {
+  background: radial-gradient(circle at 50% -6%, #4b7d28 0%, #325819 25%, #1e350f 52%, #101a08 78%, #070c04 100%);
+  background-attachment: fixed;
+}
+
+/* Atmospheric glow utilities */
+.glow-lime {
+  box-shadow: 0 0 28px rgba(204, 255, 0, 0.4);
+}
+
+.glow-lime-sm {
+  box-shadow: 0 0 16px rgba(204, 255, 0, 0.45);
+}
+
+.badge-glow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.card-green-glow {
+  box-shadow: 0 10px 30px -10px rgba(45, 80, 20, 0.35);
+}
